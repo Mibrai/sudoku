@@ -1,0 +1,15 @@
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\bin\Debug\net6.0\SudokuMaster.exe
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\bin\Debug\net6.0\SudokuMaster.deps.json
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\bin\Debug\net6.0\SudokuMaster.runtimeconfig.json
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\bin\Debug\net6.0\SudokuMaster.dll
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\bin\Debug\net6.0\SudokuMaster.pdb
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.csproj.AssemblyReference.cache
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.AssemblyInfoInputs.cache
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.AssemblyInfo.cs
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.csproj.CoreCompileInputs.cache
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.dll
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\refint\SudokuMaster.dll
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.pdb
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\SudokuMaster.genruntimeconfig.cache
+C:\Users\Projektbenutzer\Documents\AceOfSpades\SudokuMaster\SudokuMaster\obj\Debug\net6.0\ref\SudokuMaster.dll
