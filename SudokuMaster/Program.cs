@@ -235,6 +235,10 @@ namespace SudokuMaster
                         moveCursor(pos);
                         checkIfSubMatrixFill();
                         break;
+                    case ConsoleKey.L:
+                        printListBackupFiles();
+                        moveCursor(pos);
+                        break;
                     case ConsoleKey.U:
                         printPlayerNameBox();
                         Console.Clear();
@@ -858,6 +862,33 @@ namespace SudokuMaster
             } while (name.Length == 0);
             currentPlayer = name;
             
+        }
+
+        static void printListBackupFiles() {
+            int maxj = 18 + saveListFiles.Count();
+            int k = saveListFiles.Count() - 1;
+            for (int i = 35; i < 85; i++)
+            {
+                for (int j = 18; j <= (maxj + 3); j++)
+                {
+                    if ((i >= 35 && j == 18 || j == (maxj + 3)) || ((i == 35 || i == 84) && j >= 18 && j <= (maxj + 3)))
+                    {
+                        writeColor(new Position(i, j), "*", ConsoleColor.Yellow);
+                    } else
+                    {
+                        if(k >= 0 && j >= 20 && j <= (maxj + 2) )
+                        {
+                            writeColor(new Position(i, j), saveListFiles.ElementAt(k), ConsoleColor.Cyan);
+                            k--;
+                        }
+
+                    }
+                }
+
+            }
+            writeColor(new Position(36, 19), "List Of all in the Backup : ", ConsoleColor.DarkBlue);
+            //moveCursor(new Position(52, 15));
+
         }
 
         static void printErrorMessage(string msg, Position msgPos,Position initPos)
