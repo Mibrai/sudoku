@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QuxKiG06tg1vrGaY/FrM6FkrIO/cDoZ9o5Eq/mGnOPuyURwX31nRBOAbkeO9oxNsjkx8hoWPCuiOV8DDv+pJhg==",
+  "dgSpecHash": "XDMF1bTUTCqdzCsOWLeFTDEtfN88vOt0U6aQGX48aQ3wMyDDIYqia6PcvnDMdWOh1ftGvB6n6r/RsQZYPYXSCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Projektbenutzer\\Documents\\AceOfSpades\\SudokuMaster\\SudokuMaster\\SudokuMaster.csproj",
+  "projectFilePath": "C:\\Users\\paric\\Source\\Repos\\sudoku\\SudokuMaster\\SudokuMaster.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -12,26 +12,24 @@ namespace SudokuMaster
         static string[,] gamePlan = new string[9,9];    
         static Position[,] gamePlanIndex = new Position[9,9];
 
-        static System.Timers.Timer timer;
-        static int currentChronoSec = 0;
-        static int currentChronoMin = 0;
-        static int currentChronoHour = 0;
-
         static int score = 0;
         static string currentPlayingBackup;
+        static string currentPlayer;
 
-        static string PATH = "C:\\Users\\Projektbenutzer\\Documents\\AceOfSpades\\SudokuMaster\\Backup\\";
-        static string SAVE_DIRECTORY = "C:\\Users\\Projektbenutzer\\Documents\\AceOfSpades\\SudokuMaster\\Backup";
+        static string PATH = "C:\\Users\\paric\\source\\repos\\sudoku\\Backup\\";
+        static string SAVE_DIRECTORY = "C:\\Users\\paric\\source\\repos\\sudoku\\Backup";
         static List<string> saveListFiles = new List<string>();
         static void Main(string[] args)
         {
+            printPlayerNameBox();
+            Console.Clear();
             initGameMatrix("_");
             drawGamePlane();
             fillGamePlaneWithMatrixValue();
 
             drawInfoBox("* ", 35, 0);
             moveCursor(gamePlanIndex[0, 0]);
-            moveCursorByPress(); 
+            moveCursorByPress();
 
             Console.ReadLine();
         }
@@ -174,14 +172,14 @@ namespace SudokuMaster
                 for(int j = 0; j < 9; j++)
                 {
                     Console.SetCursorPosition(gamePlanIndex[i, j].getX(), gamePlanIndex[i, j].getY());
-                    writeColor(null, gamePlan[i, j], ConsoleColor.Blue);
+                    writeColor(new Position(-1,-1), gamePlan[i, j], ConsoleColor.Blue);
                 }
             }
         }
 
         static void writeColor(Position pos, string value, ConsoleColor color)
         {
-            if(pos == null)
+            if(pos.getX() == -1 && pos.getY() == -1)
             {
                 Console.ForegroundColor = color;
                 Console.Write(value);
@@ -236,6 +234,16 @@ namespace SudokuMaster
                         drawInfoBox("* ", 35, 0);
                         moveCursor(pos);
                         checkIfSubMatrixFill();
+                        break;
+                    case ConsoleKey.U:
+                        printPlayerNameBox();
+                        Console.Clear();
+                        currentPlayingBackup = "";
+                        initGameMatrix("_");
+                        drawGamePlane();
+                        fillGamePlaneWithMatrixValue();
+                        drawInfoBox("* ", 35, 0);
+                        moveCursor(pos);
                         break;
                     case ConsoleKey.C:
                         Console.Clear();
@@ -480,9 +488,15 @@ namespace SudokuMaster
 
         static bool fileExist(string path)
         {
-            if (!File.Exists(path))
-                using (StreamWriter sw = File.CreateText(path));
-            return true;
+            if (path != null && path.Length > 0)
+            {
+                if (!File.Exists(path))
+                    using (StreamWriter sw = File.CreateText(path)) ;
+                return true;
+            }
+            else
+                return false;
+
         }
 
         static void importGame(string path)
@@ -778,7 +792,7 @@ namespace SudokuMaster
             writeColor(new Position(55, 1), "SUDOKU MASTER", ConsoleColor.Cyan);
 
             //print player name
-            writeColor(new Position(36, 4), " Natsu Dragnir ", ConsoleColor.White);
+            writeColor(new Position(36, 4), currentPlayer , ConsoleColor.White);
 
             //print chrono
             //showChrono();
@@ -812,13 +826,38 @@ namespace SudokuMaster
             }
 
             //write name
-            writeColor(new Position(36, 15), "Player Name : ", ConsoleColor.Magenta);
+            writeColor(new Position(36, 15), "Filename : ", ConsoleColor.Magenta);
             moveCursor(new Position(52,15));
             string name = Console.ReadLine();
             if(name.Length > 0)
                 fileName += "" + name[0].ToString().ToUpper() + name.Substring(1);
 
             return fileName+".txt";
+        }
+
+        static void printPlayerNameBox()
+        {
+            Console.Clear();
+            for (int i = 35; i < 85; i++)
+            {
+                for (int j = 13; j < 18; j++)
+                {
+                    if ((i >= 35 && j == 13 || j == 17) || ((i == 35 || i == 84) && j >= 13 && j <= 17))
+                    {
+                        writeColor(new Position(i, j), "*", ConsoleColor.White);
+                    }
+                }
+
+            }
+            string name = "";
+            //write name
+            do {
+                writeColor(new Position(36, 15), "Player Name : ", ConsoleColor.Blue);
+                moveCursor(new Position(52, 15));
+                name = Console.ReadLine();
+            } while (name.Length == 0);
+            currentPlayer = name;
+            
         }
 
         static void printErrorMessage(string msg, Position msgPos,Position initPos)
@@ -841,28 +880,6 @@ namespace SudokuMaster
                 writeColor(new Position(36, 8), "Aktuelles gespielte Backup : " + currentPlayingBackup, ConsoleColor.Blue);
                 moveCursor(currentPosition);
             }
-        }
-
-        static void showChrono()
-        {
-            
-            timer = new System.Timers.Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += printChrono;
-            timer.AutoReset = true;
-            timer.Enabled = true;
-        } 
-
-        static void printChrono(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            int chrono = currentChronoSec + 1;
-
-            currentChronoSec = (chrono == 60) ? 0 : chrono;
-            currentChronoMin = (chrono == 60) ? currentChronoMin + 1 : currentChronoMin;
-            currentChronoHour = (currentChronoMin == 60) ? currentChronoHour + 1 : currentChronoHour;
-            moveCursor(new Position(74, 4));
-            Console.Write(currentChronoHour + ":" + currentChronoMin + ":" + currentChronoSec);
-            //moveCursor(currentPosition);
         }
 
         static void checkIfSubMatrixFill()
