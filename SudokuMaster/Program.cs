@@ -874,7 +874,7 @@ namespace SudokuMaster
 
         static void printCurrentPlayingBackup()
         {
-           if(currentPlayingBackup != null && currentPlayingBackup.Length > 0) 
+           if(currentPlayingBackup != null && currentPlayingBackup.Length > 0 && currentPlayingBackup.Contains("Save")) 
             {
                 currentPlayingBackup = currentPlayingBackup.Substring(currentPlayingBackup.IndexOf("Save") + 4);
                 writeColor(new Position(36, 8), "Aktuelles gespielte Backup : " + currentPlayingBackup, ConsoleColor.Blue);
