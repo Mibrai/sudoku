@@ -886,7 +886,7 @@ namespace SudokuMaster
                 }
 
             }
-            writeColor(new Position(36, 19), "List Of all in the Backup : ", ConsoleColor.DarkBlue);
+            writeColor(new Position(36, 19), "List Of all Backup : ", ConsoleColor.DarkBlue);
             //moveCursor(new Position(52, 15));
 
         }
